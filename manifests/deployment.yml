@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: aws-flux-sample
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: aws-flux-sample
+    spec:
+      containers:
+      - name: aws-flux-sample
+        image: 057073996027.dkr.ecr.eu-west-3.amazonaws.com/ci-test:f4821f39e94c5d9c17ee0f1a4ba2c8244656d1d2
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
