@@ -20,31 +20,31 @@ env:
 
 jobs:
   build-and-push:
-    name: Build and deploy
+    name: 
     runs-on: ubuntu-latest
     steps:
 
-    - name: Checkout
+    - name: 
       uses: actions/checkout@master
 
          
-    - name: Setup ECR
+    - name:
       run: |
         # Login to AWS ECR
         $( aws ecr get-login --no-include-email )
 
-    - name: Build and tag the image
+    - name: 
       run: |
-        # Build and tag the image
+        
         docker build \
           -t $CONTAINER_IMAGE \
           -t $GITHUB_REPOSITORY:$GITHUB_SHA \
-          -t $AWS_ACCOUNT_ID.citest.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE ./apps
+          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE ./apps
            
   
 
-    - name: Push
+    - name: 
       if: github.ref == 'refs/heads/master'
       run: |
-        # Push image to AWS ECR
+        
         docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE
