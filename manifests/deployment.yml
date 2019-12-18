@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: aws-flux-sample
-        image: 057073996027.dkr.ecr.eu-west-3.amazonaws.com/ci-test:2f03f34aa99819d00367d43ca789faf29700df47
+        image: 057073996027.dkr.ecr.eu-west-3.amazonaws.com/ci-test:942e963762366cecfdecd9ca1e4d4e23664a9c14
         ports:
         - containerPort: 5000
         resources:
