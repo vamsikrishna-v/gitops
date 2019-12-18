@@ -1,15 +1,14 @@
 on:
-    push:
-        paths:
-        - apps/**
-        branches:         
-        - master 
+  pull_request:
+    paths:
+    - apps/**
+  push:
+    paths:
+    - apps/**
+    branches:         # array of glob patterns matching against refs/heads. Optional; defaults to all
+    - master          # triggers on pushes that contain changes in master
 
-    pull_request:
-      paths:
-      - apps/**
- 
-  name: CI workflow
+name: CI workflow
 
   env:
     AWS_DEFAULT_REGION: eu-west-3
